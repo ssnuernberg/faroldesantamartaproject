@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>EdUpdates</h2>
+  <a href="{% url 'faroldesantamartaapp:status_create' %}" class="btn btn-primary mb-3 mt-3">Submit EdUpdate</a>
+  {% for status in statuses %}
+  <div class="card mb-3">
+    <div class="card-body">
+      <p class="card-text">{{ status.text }}</p>
+      <footer class="blockquote-footer">
+        Posted by {{ status.user.get_full_name }} on <cite title="Source Title">{{ status.created_at|date:"Y-m-d H:i" }}</cite>
+      </footer>
+      {% if user.is_authenticated and status.user == request.user %}
+        <a href="{% url 'faroldesantamartaapp:status_update' status.pk %}" class="btn btn-primary">Edit</a>
+        <a href="{% url 'faroldesantamartaapp:status_delete' status.pk %}" class="btn btn-danger">Delete</a>
+      {% endif %}
+    </div>
+  </div>
+  {% empty %}
+  <p>No status updates available.</p>
+  {% endfor %}
+</div>
+{% endblock %}

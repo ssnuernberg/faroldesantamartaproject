@@ -1,0 +1,171 @@
+[
+{
+  "model": "faroldesantamartaapp.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$s1z3BAh5a0vWgS0vZ076oe$hq73GObTy20h4+srH7V4ak9zbDZrBY2MIaskWk1nejI=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "Admin",
+    "last_name": "",
+    "email": "admin@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-01-01T00:00:00.000Z",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "location": null,
+    "birth_date": null,
+    "groups": [],
+    "user_permissions": [],
+    "roles": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "faroldesantamartaapp.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$7Y0wKthcgjsyg0DvOPHvBi$1cc88mOD9nRR6yhZYoxvF17afTD+GE/lk3EWiCIXqVY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student1",
+    "first_name": "Student",
+    "last_name": "One",
+    "email": "student1@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-01-01T00:00:00.000Z",
+    "bio": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+    "location": "Somewhere",
+    "birth_date": "2024-01-01",
+    "groups": [],
+    "user_permissions": [],
+    "roles": [
+      1
+    ]
+  }
+},
+{
+  "model": "faroldesantamartaapp.customuser",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$7Y0wKthcgjsyg0DvOPHvBi$1cc88mOD9nRR6yhZYoxvF17afTD+GE/lk3EWiCIXqVY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student2",
+    "first_name": "Student",
+    "last_name": "Two",
+    "email": "student2@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-01-01T00:00:00.000Z",
+    "bio": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+    "location": "Somewhere",
+    "birth_date": "2024-01-01",
+    "groups": [],
+    "user_permissions": [],
+    "roles": [
+      1
+    ]
+  }
+},
+{
+  "model": "faroldesantamartaapp.customuser",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$7Y0wKthcgjsyg0DvOPHvBi$1cc88mOD9nRR6yhZYoxvF17afTD+GE/lk3EWiCIXqVY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student3",
+    "first_name": "Student",
+    "last_name": "Three",
+    "email": "student3@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-01-01T00:00:00.000Z",
+    "bio": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+    "location": "Somewhere",
+    "birth_date": "2024-01-01",
+    "groups": [],
+    "user_permissions": [],
+    "roles": [
+      1
+    ]
+  }
+},
+{
+  "model": "faroldesantamartaapp.customuser",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$oWsmW95OUEWP7FeeAgFzlB$uWxy3db0Izpm4WHS4+L2RR4/JRm7Y3GRYihFwTMgCjM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "teacher1",
+    "first_name": "Teacher",
+    "last_name": "One",
+    "email": "teacher1@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-01-01T00:00:00.000Z",
+    "bio": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    "location": "Elsewhere",
+    "birth_date": "2024-01-01",
+    "groups": [],
+    "user_permissions": [],
+    "roles": [
+      2
+    ]
+  }
+},
+{
+  "model": "faroldesantamartaapp.customuser",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$oWsmW95OUEWP7FeeAgFzlB$uWxy3db0Izpm4WHS4+L2RR4/JRm7Y3GRYihFwTMgCjM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "teacher2",
+    "first_name": "Teacher",
+    "last_name": "Two",
+    "email": "teacher2@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-01-01T00:00:00.000Z",
+    "bio": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    "location": "Elsewhere",
+    "birth_date": "2024-01-01",
+    "groups": [],
+    "user_permissions": [],
+    "roles": [
+      2
+    ]
+  }
+},
+{
+  "model": "faroldesantamartaapp.customuser",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$oWsmW95OUEWP7FeeAgFzlB$uWxy3db0Izpm4WHS4+L2RR4/JRm7Y3GRYihFwTMgCjM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "teacher3",
+    "first_name": "Teacher",
+    "last_name": "Three",
+    "email": "teacher3@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-01-01T00:00:00.000Z",
+    "bio": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    "location": "Elsewhere",
+    "birth_date": "2024-01-01",
+    "groups": [],
+    "user_permissions": [],
+    "roles": [
+      2
+    ]
+  }
+}
+]

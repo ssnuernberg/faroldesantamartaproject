@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-3">Chat Room: {{ room_name }}</h2>
+    <div id="chat-messages" class="mb-3 p-3 bg-light" style="height: 300px; overflow-y: scroll; border: 1px solid #ccc;">
+        <!-- Messages will be displayed here -->
+    </div>
+    <textarea id="chat-message-input" class="form-control mb-2" rows="3" placeholder="Type your message here..."></textarea>
+    <button id="chat-message-submit" class="btn btn-primary">Send</button>
+    {% if request.user.is_superuser %}
+      <a href="{% url 'faroldesantamartaapp:chat_clear_room' 'faroldesantamarta' %}" class="btn btn-danger">Clear</a>
+    {% endif %}
+</div>
+
+<script>
+    document.getElementById('chat-message-input').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter' && !event.shiftKey) { // Check if Enter is pressed without the Shift key
+        event.preventDefault(); // Prevent the default action to avoid line breaks in input
+        var message = this.value.trim(); // Get the input value and trim white spaces
+        if (message) { // Check if the message is not empty
+          document.getElementById('chat-message-form').submit(); // Submit the form
+        }
+      }
+    });
+</script>
+
+<script>
+    const roomName = "{{ room_name }}";
+    const chatMessages = document.getElementById("chat-messages");
+    const chatMessageInput = document.getElementById("chat-message-input");
+    const chatMessageSubmit = document.getElementById("chat-message-submit");
+
+    chatMessageInput.addEventListener('keypress', function(event) {
+      if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        const message = chatMessageInput.value.trim();
+        if (message) {
+          postMessage(message);
+          chatMessageInput.value = '';
+        }
+      }
+    });
+
+    chatMessageSubmit.onclick = function(e) {
+        const message = chatMessageInput.value.trim();
+        if (message) {
+          postMessage(message);
+          chatMessageInput.value = '';
+        }
+    };
+
+    function fetchMessages() {
+        fetch(`/chat/${roomName}/get_messages/`)
+            .then(response => response.json())
+            .then(data => {
+                chatMessages.innerHTML = '';  // Clear current messages
+                data.forEach(msg => {
+                    const msgElement = document.createElement('div');
+                    msgElement.classList.add('p-2', 'border-bottom');
+                    msgElement.innerHTML = `<strong>${msg.user__username}</strong>: ${msg.text}`;
+                    chatMessages.appendChild(msgElement);
+                    chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to the bottom
+                });
+            });
+    }
+
+    function postMessage(text) {
+        fetch(`/chat/${roomName}/post_message/`, {
+            method: 'POST',
+            body: JSON.stringify({'text': text}),
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+        }).then(response => {
+            if (response.ok) {
+                fetchMessages();  // Reload messages to include the new one
+            }
+        });
+    }
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    setInterval(fetchMessages, 1000);  // Polling every second
+</script>
+{% endblock %}

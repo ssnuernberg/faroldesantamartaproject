@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Course Details</h2>
+  <div class="card mt-3">
+    <div class="card-header">
+      {{ course.name }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Course Details</h5>
+      <p class="card-text"><strong>Description:</strong> {{ course.description }}</p>
+      <p class="card-text"><strong>Teacher:</strong> {{ course.teacher.get_full_name }}</p>
+
+      <h5 class="mt-4">Enrolled Students</h5>
+      {% if course.students.all %}
+        <ul class="list-group list-group-flush">
+          {% for student in course.students.all %}
+          <a href="{% url 'faroldesantamartaapp:user_detail' student.pk %}" class="list-group-item list-group-item-action">
+            {{ student.get_full_name }}
+            {% if request.user == course.teacher %}
+              <form action="{% url 'faroldesantamartaapp:course_unenroll' course.pk student.pk %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm float-end">Unenroll</button>
+              </form>
+            {% endif %}
+          </a>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="text-muted">No students are currently enrolled in this course.</p>
+      {% endif %}
+
+      <h5 class="mt-4">Course Files</h5>
+      {% if course.files %}
+        <a href="{{ course.files.url }}" class="btn btn-primary mt-3" download>Download Course Materials</a>
+      {% else %}
+        <p class="text-muted">No files available for this course.</p>
+      {% endif %}
+
+      <h5 class="mt-4">Course Feedback</h5>
+      {% for feedback in feedbacks %}
+        <p class="card-text">{{ feedback.text }}</p>
+        <footer class="blockquote-footer">{{ feedback.user.get_full_name }} on <cite title="Source Title">{{ feedback.created_at|date:"Y-m-d" }}</cite></footer>
+        {% if user.is_authenticated and feedback.user == request.user %}
+          <div class="mb-3">
+            <a href="{% url 'faroldesantamartaapp:feedback_update' feedback.pk %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'faroldesantamartaapp:feedback_delete' feedback.pk %}" class="btn btn-danger">Delete</a>
+          </div>
+        {% endif %}
+      {% empty %}
+        <p class="text-muted">No feedback available for this course.</p>
+      {% endfor %}
+
+      {% if request.user.is_authenticated and request.user.is_student %}
+        <h5 class="mt-4">Leave Feedback</h5>
+          <form method="post" action="{% url 'faroldesantamartaapp:feedback_create' course.pk %}">
+            {% csrf_token %}
+            {% bootstrap_form feedback_form %}
+            <button type="submit" class="btn btn-primary">Submit Feedback</button>
+          </form>
+      {% endif %}
+    </div>
+  </div>
+  {% if request.user.is_authenticated and request.user.is_student and request.user not in course.students.all %}
+    <form action="{% url 'faroldesantamartaapp:course_enroll' course.id %}" method="post" class="mt-3">
+      {% csrf_token %}
+       <button type="submit" class="btn btn-primary">Enroll</button>
+       <a href="{% url 'faroldesantamartaapp:course_list' %}" class="btn btn-secondary">Back to Courses</a>
+    </form>
+  {% endif %}
+</div>
+{% endblock %}

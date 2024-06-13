@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>User Profile</h2>
+  <div class="card mt-3">
+    <div class="card-header">
+      {{ user.get_full_name }}
+    </div>
+    <div class="card-body">
+      <p class="card-text"><strong>Username:</strong> {{ user.username }}</p>
+      <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+      {% if user.bio %}
+        <p class="card-text"><strong>Bio:</strong> {{ user.bio }}</p>
+      {% endif %}
+      {% if user.location %}
+        <p class="card-text"><strong>Location:</strong> {{ user.location }}</p>
+      {% endif %}
+      {% if user.birth_date %}
+        <p class="card-text"><strong>Birth Date:</strong> {{ user.birth_date|date:"F d, Y" }}</p>
+      {% endif %}
+    </div>
+  </div>
+  <a href="{% url 'faroldesantamartaapp:profile_change' %}" class="btn btn-primary mt-3">Edit Profile</a>
+</div>
+{% endblock %}

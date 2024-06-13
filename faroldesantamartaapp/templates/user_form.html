@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>{% if form.instance.pk %}Edit{% else %}Add{% endif %} User</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-success">Save</button>
+    <a href="{% if form.instance.pk %}{% url 'faroldesantamartaapp:user_detail' form.instance.pk %}{% else %}{% url 'faroldesantamartaapp:user_list' %}{% endif %}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}

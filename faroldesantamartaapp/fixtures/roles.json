@@ -1,0 +1,16 @@
+[
+  {
+    "model": "faroldesantamartaapp.role",
+    "pk": 1,
+    "fields": {
+      "name": "Student"
+    }
+  },
+  {
+    "model": "faroldesantamartaapp.role",
+    "pk": 2,
+    "fields": {
+      "name": "Teacher"
+    }
+  }
+]

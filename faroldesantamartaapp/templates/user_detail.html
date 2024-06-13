@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Student Details</h2>
+  <div class="card mt-3">
+    <div class="card-header">
+      {{ user_detail.get_full_name }}
+    </div>
+    <div class="card-body">
+      <p class="card-text"><strong>Username:</strong> {{ user_detail.username }}</p>
+      <p class="card-text"><strong>Email:</strong> {{ user_detail.email }}</p>
+      {% if user.bio %}
+        <p class="card-text"><strong>Bio:</strong> {{ user.bio }}</p>
+      {% endif %}
+      {% if user.location %}
+        <p class="card-text"><strong>Location:</strong> {{ user.location }}</p>
+      {% endif %}
+      {% if user.birth_date %}
+        <p class="card-text"><strong>Birth Date:</strong> {{ user.birth_date|date:"F d, Y" }}</p>
+      {% endif %}
+      <p class="card-text"><strong>Roles:</strong> {% for role in user_detail.roles.all %}{{ role.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+      <h5 class="mt-4">EdUpdates</h5>
+      {% for status in statuses %}
+      <p class="card-text">{{ status.text }}</p>
+      <footer class="blockquote-footer">{{ status.created_at|date:"Y-m-d H:i" }}</footer>
+      {% empty %}
+          <p>No status EdUpdates to show.</p>
+      {% endfor %}
+      </div>
+  </div>
+  {% if user.is_authenticated and user_detail == request.user %}
+    <a href="{% url 'faroldesantamartaapp:user_update' user_detail.pk %}" class="btn btn-primary mt-3">Edit</a>
+    <a href="{% url 'faroldesantamartaapp:user_delete' user_detail.pk %}" class="btn btn-danger mt-3">Delete</a>
+  {% endif %}
+  <a href="{% url 'faroldesantamartaapp:user_list' %}" class="btn btn-secondary mt-3">Back to Students</a>
+</div>
+{% endblock %}
