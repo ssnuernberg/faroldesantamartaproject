@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Donate{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="mb-4">Donate</h1>
+  <p>Your donations help us fund clean-up events, educational programs, and other initiatives aimed at preserving our beautiful coastline. Thank you for your support!</p>
+
+  <div class="row mt-5">
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Why Donate?</h5>
+          <p class="card-text">Your contributions enable us to organize beach clean-up events, provide educational resources, and support ongoing conservation efforts.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Suggested Donation Amounts</h5>
+          <ul class="list-group">
+            <li class="list-group-item">€10 - Helps us buy cleaning supplies</li>
+            <li class="list-group-item">€25 - Supports a volunteer for a day</li>
+            <li class="list-group-item">€50 - Funds an educational workshop</li>
+            <li class="list-group-item">€100 - Sponsors a beach clean-up event</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-md-8 offset-md-2">
+      <h2>Make a Donation</h2>
+      <form action="/your-donation-processing-url/" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="amount" class="form-label">Donation Amount (€)</label>
+          <input type="number" class="form-control" id="amount" name="amount" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Donate</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

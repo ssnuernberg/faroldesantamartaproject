@@ -48,6 +48,56 @@ def index(request):
     notifications = Notification.objects.filter(user=request.user, is_read=False) if request.user.is_authenticated else None
     return render(request, 'index.html', {'notifications': notifications})
 
+def about(request):
+    return render(request, 'about.html')
+
+def events(request):
+    # This would typically come from your database
+    upcoming_events = [
+        {
+            'title': 'Beach Clean-Up at Praia do Cardoso',
+            'date': '2024-08-15',
+            'location': 'Praia do Cardoso, Farol de Santa Marta',
+            'description': 'Join us for a beach clean-up event to help keep our shores clean and beautiful.',
+        },
+        {
+            'title': 'Educational Workshop on Marine Conservation',
+            'date': '2024-09-10',
+            'location': 'Community Center, Farol de Santa Marta',
+            'description': 'A workshop to educate the community about the importance of marine conservation.',
+        },
+        # Add more events as needed
+    ]
+    return render(request, 'events.html', {'upcoming_events': upcoming_events})
+
+
+def get_involved(request):
+    return render(request, 'get_involved.html')
+
+def donate(request):
+    return render(request, 'donate.html')
+
+def store(request):
+    # This would typically come from your database
+    products = [
+        {
+            'name': 'Eco-friendly Water Bottle',
+            'price': 'R$119',
+            'description': 'Reusable water bottle made from sustainable materials.',
+            'image_url': 'path_to_image.jpg',
+        },
+        {
+            'name': 'Reusable Tote Bag',
+            'price': 'R$49',
+            'description': 'Stylish tote bag perfect for carrying groceries or beach gear.',
+            'image_url': 'path_to_image.jpg',
+        },
+        # Add more products as needed
+    ]
+    return render(request, 'store.html', {'products': products})
+
+def contact(request):
+    return render(request, 'contact.html')
 
 @login_required
 def profile(request):

@@ -5,6 +5,13 @@ app_name = 'faroldesantamartaapp'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('about/', views.about, name='about'),
+    path('events/', views.events, name='events'),  
+    path('get_involved/', views.get_involved, name='get_involved'),  
+    path('donate/', views.donate, name='donate'),     
+    path('store/', views.store, name='store'),
+    path('contact/', views.contact, name='contact'),
+
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/profile/', views.profile, name='profile'),
     path('accounts/profile_change/', views.profile_change, name='profile_change'),

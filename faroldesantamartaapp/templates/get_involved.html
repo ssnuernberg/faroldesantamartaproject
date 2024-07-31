@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Get Involved{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="mb-4">Get Involved</h1>
+  <p>There are many ways to contribute to our conservation efforts. Whether you want to volunteer, donate, or spread the word, every little bit helps.</p>
+
+  <div class="row mt-5">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 text-white bg-primary">
+        <div class="card-body">
+          <h5 class="card-title">Volunteer</h5>
+          <p class="card-text">Help us by participating in our events and initiatives. Your efforts will make a significant impact on keeping our beaches clean.</p>
+          <a href="#volunteer" class="btn btn-light">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 text-white bg-secondary">
+        <div class="card-body">
+          <h5 class="card-title">Donate</h5>
+          <p class="card-text">Your donations help us fund clean-up events, educational programs, and other initiatives aimed at preserving our beautiful coastline.</p>
+          <a href="{% url 'faroldesantamartaapp:donate' %}" class="btn btn-light">Donate</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 text-white bg-success">
+        <div class="card-body">
+          <h5 class="card-title">Spread the Word</h5>
+          <p class="card-text">Share our mission with your friends and family. The more people know about our cause, the bigger the impact we can make.</p>
+          <a href="#spread_the_word" class="btn btn-light">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Volunteer Section -->
+  <div class="row mt-5" id="volunteer">
+    <div class="col-md-12">
+      <h2>Volunteer</h2>
+      <p>We organize regular beach clean-ups and other conservation activities. Join us in making a tangible difference. Sign up to volunteer and stay updated on upcoming events.</p>
+      <a href="{% url 'faroldesantamartaapp:events' %}" class="btn btn-primary">View Upcoming Events</a>
+    </div>
+  </div>
+
+  <!-- Spread the Word Section -->
+  <div class="row mt-5" id="spread_the_word">
+    <div class="col-md-12">
+      <h2>Spread the Word</h2>
+      <p>Help us raise awareness about the importance of beach conservation. Share our mission on social media, tell your friends and family, and encourage others to get involved.</p>
+      <div class="d-flex">
+        <a href="#" class="btn btn-primary me-2">Share on Facebook</a>
+        <a href="#" class="btn btn-primary me-2">Share on Twitter</a>
+        <a href="#" class="btn btn-primary">Share on Instagram</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

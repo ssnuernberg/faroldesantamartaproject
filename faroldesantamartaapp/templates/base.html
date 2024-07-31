@@ -12,7 +12,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'faroldesantamartaapp:index' %}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20px" height="20px" class="mb-1"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg></i> Farol de Santa Marta</a>
+      <a class="navbar-brand" href="{% url 'faroldesantamartaapp:index' %}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20px" height="20px" class="mb-1"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg> Farol de Santa Marta</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,16 +22,22 @@
             <a class="nav-link active" aria-current="page" href="{% url 'faroldesantamartaapp:index' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'faroldesantamartaapp:status_list' %}">EdUpdates</a>
+            <a class="nav-link" href="{% url 'faroldesantamartaapp:about' %}">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'faroldesantamartaapp:user_list' %}">Students</a>
+            <a class="nav-link" href="{% url 'faroldesantamartaapp:events' %}">Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'faroldesantamartaapp:course_list' %}">Courses</a>
+            <a class="nav-link" href="{% url 'faroldesantamartaapp:get_involved' %}">Get Involved</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'faroldesantamartaapp:chat' 'faroldesantamarta' %}">Chat</a>
+            <a class="nav-link" href="{% url 'faroldesantamartaapp:donate' %}">Donate</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'faroldesantamartaapp:store' %}">Store</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'faroldesantamartaapp:contact' %}">Contact</a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -48,7 +54,7 @@
               function logout() {
                 var form = document.createElement('form');
                 form.method = 'POST';
-                form.action = '{% url "faroldesantamartaapp:logout" %}';  <!-- Ensure this URL is correctly configured -->
+                form.action = '{% url "faroldesantamartaapp:logout" %}';
 
                 // CSRF token
                 var csrfInput = document.createElement('input');
