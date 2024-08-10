@@ -3,21 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <title>{% block title %}Farol de Santa Marta{% endblock title %}</title>
 
   <!-- Load Bootstrap 5 CSS -->
+  {% load static %}
   {% load django_bootstrap5 %}
   {% bootstrap_css %}
+
+  <!-- Favicon -->
+  <link rel="icon" href="{% static '/images/favicon.ico' %}" type="image/x-icon">
+
+   <!-- Google Translate API -->
+   <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,pt',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <style>
+    .navbar {
+      background-color: #004d80; /* Dark blue background */
+    }
+    .navbar-brand, .navbar-nav .nav-link {
+      color: #ffffff !important; /* White text */
+    }
+    .navbar-brand svg {
+      fill: #ffffff; /* White icon */
+    }
+    .navbar-toggler {
+      border-color: #ffffff; /* White border */
+    }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%288255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+    .btn-donate {
+      background-color: #ff5733; /* Bright orange background */
+      margin-left: 20px; /* Make the button larger */
+      margin-right: 20px; /* Make the button larger */
+      color: #ffffff !important; /* White text */
+    }
+    .btn-donate:hover {
+      background-color: #e74c3c; /* Slightly darker orange on hover */
+    }
+    .nav-item .dropdown-menu {
+      background-color: #004d80; /* Dark blue background for dropdown */
+    }
+    .nav-item .dropdown-menu .dropdown-item {
+      color: #ffffff !important; /* White text for dropdown items */
+    }
+    .nav-item .dropdown-menu .dropdown-item:hover {
+      background-color: #003366; /* Darker blue on hover */
+    }
+        
+  </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'faroldesantamartaapp:index' %}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20px" height="20px" class="mb-1"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg> Farol de Santa Marta</a>
+      <a class="navbar-brand" href="{% url 'faroldesantamartaapp:index' %}">
+        <img src="{% static 'images/logo.png' %}" alt="Farol de Santa Marta Logo" class="d-inline-block align-text-top" height="24px">
+        &nbsp;Farol de Santa Marta
+      </a>      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'faroldesantamartaapp:index' %}">Home</a>
           </li>
@@ -31,16 +90,18 @@
             <a class="nav-link" href="{% url 'faroldesantamartaapp:get_involved' %}">Get Involved</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'faroldesantamartaapp:donate' %}">Donate</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{% url 'faroldesantamartaapp:store' %}">Store</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'faroldesantamartaapp:contact' %}">Contact</a>
           </li>
         </ul>
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <div id="google_translate_element"></div>
+      
+          <li class="nav-item">
+            <a class="btn btn-donate nav-link text-white" href="{% url 'faroldesantamartaapp:donate' %}">Donate Now</a>
+          </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
             <span class="nav-link me-3">Hello, {{ user.username }}!</span>
@@ -72,14 +133,34 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'faroldesantamartaapp:login' %}">Login</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'faroldesantamartaapp:register' %}">Register</a>
-          </li>
           {% endif %}
         </ul>
       </div>
     </div>
   </nav>
+
+ <!-- Donation Modal -->
+ <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="donationModalLabel">Support Our Cause</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Your support helps us maintain and protect the beautiful beaches of Farol de Santa Marta. Consider making a donation today.</p>
+        <form method="post" action="{% url 'faroldesantamartaapp:donate' %}">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="donationAmount" class="form-label">Donation Amount</label>
+            <input type="number" class="form-control" id="donationAmount" name="amount" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Donate</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
   <div class="container mt-4">
     {% if messages %}
@@ -97,8 +178,11 @@
 
   <!-- Load Bootstrap 5 and dependencies -->
   {% bootstrap_javascript %}
-
-  <!-- Your custom scripts here -->
-
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var donationModal = new bootstrap.Modal(document.getElementById('donationModal'));
+      donationModal.show();
+    });
+  </script>
 </body>
 </html>
