@@ -29,6 +29,12 @@
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <style>
+    .footer {
+      background-color: #004d80; /* Dark blue background */
+      color: #ffffff; /* White text */
+      bottom: 0;
+      width: 100%;
+    }
     .navbar {
       background-color: #004d80; /* Dark blue background */
     }
@@ -139,29 +145,6 @@
     </div>
   </nav>
 
- <!-- Donation Modal -->
- <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="donationModalLabel">Support Our Cause</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Your support helps us maintain and protect the beautiful beaches of Farol de Santa Marta. Consider making a donation today.</p>
-        <form method="post" action="{% url 'faroldesantamartaapp:donate' %}">
-          {% csrf_token %}
-          <div class="mb-3">
-            <label for="donationAmount" class="form-label">Donation Amount</label>
-            <input type="number" class="form-control" id="donationAmount" name="amount" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Donate</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
   <div class="container mt-4">
     {% if messages %}
       <div class="container mt-3">
@@ -175,6 +158,9 @@
     {% endif %}
     {% block content %}{% endblock %}
   </div>
+  <br>
+  <br>
+  {% include "footer.html" %}
 
   <!-- Load Bootstrap 5 and dependencies -->
   {% bootstrap_javascript %}

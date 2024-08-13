@@ -82,15 +82,15 @@ def store(request):
     products = [
         {
             'name': 'Eco-friendly Water Bottle',
-            'price': 'R$119',
+            'price': '$119',
             'description': 'Reusable water bottle made from sustainable materials.',
-            'image_url': 'path_to_image.jpg',
+            'image_url': '/static/images/farol_waterbottle.jpeg',
         },
         {
             'name': 'Reusable Tote Bag',
-            'price': 'R$49',
+            'price': '$49',
             'description': 'Stylish tote bag perfect for carrying groceries or beach gear.',
-            'image_url': 'path_to_image.jpg',
+            'image_url': '/static/images/farol_ecobag.jpeg',
         },
         # Add more products as needed
     ]
