@@ -2,55 +2,56 @@
 
 {% block title %}About Us{% endblock %}
 
-{% block content %}
-  <!-- About Us Section -->
-  <div class="container mt-5">
-    <h1>About Us</h1>
-    <p>The "Praia Limpa Santa Marta" project is dedicated to protecting and preserving the beautiful beaches of Farol de Santa Marta. Our mission is to engage the local community and tourists in conservation efforts, ensuring that this stunning coastline remains pristine for future generations.</p>
-
-    <!-- Our Story Section -->
-    <div class="row mt-5">
-      <div class="col-md-6">
-        <h2>Our Story</h2>
-        <p>Founded in 2024, "Praia Limpa Santa Marta" was born out of a passion for environmental conservation and a love for the natural beauty of Farol de Santa Marta. Our founders, a group of dedicated environmentalists and community members, recognized the need for a concerted effort to address the growing pollution and littering issues caused by increased tourism.</p>
-      </div>
-      <div class="col-md-6">
-        <img src="path_to_image.jpg" class="img-fluid rounded-3" alt="Our Story">
-      </div>
-    </div>
-
-    <!-- Our Team Section -->
-    <div class="row mt-5">
-      <div class="col-md-12">
-        <h2>Our Team</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-4">
-              <img src="path_to_team_member_image.jpg" class="card-img-top" alt="Team Member">
-              <div class="card-body">
-                <h5 class="card-title">Samantha Nuernberg</h5>
-                <p class="card-text">Founder & Executive Director</p>
-                <p class="card-text">Samantha is a passionate environmentalist with over 10 years of experience in conservation projects worldwide.</p>
-              </div>
-            </div>
-          </div>
-          <!-- Repeat for other team members -->
-        </div>
-      </div>
-    </div>
-
-    <!-- Partners and Sponsors Section -->
-    <div class="row mt-5">
-      <div class="col-md-12">
-        <h2>Partners and Sponsors</h2>
-        <p>We are grateful for the support of our partners and sponsors who help make our conservation efforts possible. Their contributions are invaluable in helping us achieve our mission.</p>
-        <div class="row">
-          <div class="col-md-3">
-            <img src="path_to_partner_logo.jpg" class="img-fluid rounded-3 mb-3" alt="Partner Logo">
-          </div>
-          <!-- Repeat for other partners -->
-        </div>
-      </div>
+{% block content %}<!-- About Us Section -->
+<div class="container mt-5">
+  <div class="row justify-content-center text-center">
+    <div class="col-lg-8">
+      <h1 class="display-4 fw-bold">About Farol de Santa Marta</h1>
+      <p class="lead mt-3">
+        The "Praia Limpa Santa Marta" project is dedicated to protecting and preserving the beautiful beaches of Farol de Santa Marta. Our mission is to engage the local community and tourists in conservation efforts, ensuring that this stunning coastline remains pristine for future generations.  
+      </p>
     </div>
   </div>
+  
+  <div class="row mt-5">
+    <div class="col-lg-6">
+      <h2 class="fw-bold">Our Mission</h2>
+      <p>
+        Our mission is to protect and enhance the coastal and marine environments around Farol de Santa Marta through community engagement, conservation initiatives, and educational programs. We believe that by working together, we can ensure that future generations will be able to enjoy the pristine beaches and vibrant ecosystems that make this region so special.
+      </p>
+    </div>
+    <div class="col-lg-6">
+      <h2 class="fw-bold">Our Vision</h2>
+      <p>
+        We envision a future where the natural beauty of Farol de Santa Marta is preserved and cherished by all. Our vision is to create a sustainable model of environmental stewardship that inspires individuals, communities, and organizations to take action in protecting the world's coastlines and oceans.
+      </p>
+    </div>
+  </div>
+  
+  <div class="row mt-5">
+    <div class="col-lg-6">
+      <h2 class="fw-bold">Our Values</h2>
+      <ul class="list-unstyled">
+        <li><strong>Environmental Stewardship:</strong> We are dedicated to the responsible management and care of our natural resources.</li>
+        <li><strong>Community Engagement:</strong> We believe in the power of collective action and work closely with local communities to drive change.</li>
+        <li><strong>Education and Awareness:</strong> We are committed to educating the public about the importance of environmental conservation.</li>
+        <li><strong>Sustainability:</strong> We strive to implement practices that ensure long-term environmental health and resilience.</li>
+        <li><strong>Transparency:</strong> We operate with openness and integrity, ensuring that our supporters know exactly how their contributions are making a difference.</li>
+      </ul>
+    </div>
+    <div class="col-lg-6">
+      <img src="/static/images/farol-de-santa-marta-1.jpeg" class="img-fluid rounded" alt="Farol de Santa Marta Coastline">
+    </div>
+  </div>
+  
+  <div class="row mt-5 justify-content-center text-center">
+    <div class="col-lg-8">
+      <h2 class="fw-bold">Join Us</h2>
+      <p>
+        Whether you’re a local resident, a visitor, or simply someone who cares about the environment, there are many ways to get involved. From participating in our beach cleanups to supporting our educational programs, your contribution makes a real impact. Together, we can ensure that Farol de Santa Marta remains a natural treasure for generations to come.
+      </p>
+      <a href="{% url 'faroldesantamartaapp:get_involved' %}" class="btn btn-primary btn-lg mt-3">Get Involved</a>
+    </div>
+  </div>
+</div>
 {% endblock %}
