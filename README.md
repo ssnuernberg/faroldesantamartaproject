@@ -3,9 +3,7 @@ faroldesantamartaproject
 
 ![faroldesantamartaproject Screenshot](screenshot.png)
 
-faroldesantamartaproject offers a premier platform for universities to present their courses,
-facilitating collaboration and knowledge sharing. We empower universities,
-students, and educators in the pursuit of excellence in education.
+**Farol de Santa Marta App** is a Django-based platform designed to support environmental conservation efforts in the Farol de Santa Marta region. This platform enables users to participate in environmental conservation courses, provide feedback, purchase eco-friendly products, and contribute to community-driven sustainability initiatives.
 
 
 Installation
