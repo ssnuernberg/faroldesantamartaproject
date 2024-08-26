@@ -7,7 +7,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, RedirectView, View
-from .models import CustomUser, Role, Status, Course, Feedback, Notification, Message, Event
+from .models import CustomUser, Role, Status, Course, Feedback, Notification, Message, Event, Product
 from .forms import CustomUserChangeForm, CustomUserCreationForm, StatusForm, CourseForm, FeedbackForm
 from rest_framework import viewsets, permissions
 from .serializers import RoleSerializer, CustomUserSerializer, StatusSerializer, CourseSerializer, FeedbackSerializer, NotificationSerializer
@@ -62,22 +62,7 @@ def donate(request):
     return render(request, 'donate.html')
 
 def store(request):
-    # This would typically come from your database
-    products = [
-        {
-            'name': 'Eco-friendly Water Bottle',
-            'price': '$119',
-            'description': 'Reusable water bottle made from sustainable materials.',
-            'image_url': '/static/images/farol_waterbottle.jpeg',
-        },
-        {
-            'name': 'Reusable Tote Bag',
-            'price': '$49',
-            'description': 'Stylish tote bag perfect for carrying groceries or beach gear.',
-            'image_url': '/static/images/farol_ecobag.jpeg',
-        },
-        # Add more products as needed
-    ]
+    products = Product.objects.all()
     return render(request, 'store.html', {'products': products})
 
 def contact(request):

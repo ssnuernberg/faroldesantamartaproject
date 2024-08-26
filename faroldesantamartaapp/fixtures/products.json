@@ -1,0 +1,22 @@
+[
+    {
+        "model": "faroldesantamartaapp.product",
+        "pk": 1,
+        "fields": {
+            "name": "Eco-friendly Water Bottle",
+            "price": "119.00",
+            "description": "Reusable water bottle made from sustainable materials.",
+            "image_url": "/static/images/farol_waterbottle.jpeg"
+        }
+    },
+    {
+        "model": "faroldesantamartaapp.product",
+        "pk": 2,
+        "fields": {
+            "name": "Reusable Tote Bag",
+            "price": "49.00",
+            "description": "Stylish tote bag perfect for carrying groceries or beach gear.",
+            "image_url": "/static/images/farol_ecobag.jpeg"
+        }
+    }
+]
