@@ -7,7 +7,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, RedirectView, View
-from .models import CustomUser, Role, Status, Course, Feedback, Notification, Message
+from .models import CustomUser, Role, Status, Course, Feedback, Notification, Message, Event
 from .forms import CustomUserChangeForm, CustomUserCreationForm, StatusForm, CourseForm, FeedbackForm
 from rest_framework import viewsets, permissions
 from .serializers import RoleSerializer, CustomUserSerializer, StatusSerializer, CourseSerializer, FeedbackSerializer, NotificationSerializer
@@ -52,24 +52,8 @@ def about(request):
     return render(request, 'about.html')
 
 def events(request):
-    # This would typically come from your database
-    upcoming_events = [
-        {
-            'title': 'Beach Clean-Up at Praia do Cardoso',
-            'date': '2024-08-15',
-            'location': 'Praia do Cardoso, Farol de Santa Marta',
-            'description': 'Join us for a beach clean-up event to help keep our shores clean and beautiful.',
-        },
-        {
-            'title': 'Educational Workshop on Marine Conservation',
-            'date': '2024-09-10',
-            'location': 'Community Center, Farol de Santa Marta',
-            'description': 'A workshop to educate the community about the importance of marine conservation.',
-        },
-        # Add more events as needed
-    ]
+    upcoming_events = Event.objects.all()
     return render(request, 'events.html', {'upcoming_events': upcoming_events})
-
 
 def get_involved(request):
     return render(request, 'get_involved.html')

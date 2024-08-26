@@ -82,3 +82,13 @@ class Message(models.Model):
 
     def __str__(self):
         return f"Message by {self.user.username} on {self.created_at.strftime('%Y-%m-%d %H:%M')}"
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    date = models.DateField()
+    location = models.CharField(max_length=200)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.title

@@ -1,0 +1,52 @@
+[
+    {
+        "model": "faroldesantamartaapp.event",
+        "pk": 1,
+        "fields": {
+            "title": "Beach Clean-Up at Praia do Cardoso",
+            "date": "2024-08-15",
+            "location": "Praia do Cardoso, Farol de Santa Marta",
+            "description": "Join us for a beach clean-up event to help keep our shores clean and beautiful."
+        }
+    },
+    {
+        "model": "faroldesantamartaapp.event",
+        "pk": 2,
+        "fields": {
+            "title": "Educational Workshop on Marine Conservation",
+            "date": "2024-09-10",
+            "location": "Community Center, Farol de Santa Marta",
+            "description": "A workshop to educate the community about the importance of marine conservation."
+        }
+    },
+    {
+        "model": "faroldesantamartaapp.event",
+        "pk": 3,
+        "fields": {
+            "title": "Coastal Ecosystem Awareness Walk",
+            "date": "2024-09-25",
+            "location": "Praia do Cardoso, Farol de Santa Marta",
+            "description": "An educational walk along the coastline to raise awareness about the coastal ecosystem."
+        }
+    },
+    {
+        "model": "faroldesantamartaapp.event",
+        "pk": 4,
+        "fields": {
+            "title": "Marine Life Photography Contest",
+            "date": "2024-10-05",
+            "location": "Farol de Santa Marta",
+            "description": "Capture the beauty of marine life in this photography contest. Open to all ages."
+        }
+    },
+    {
+        "model": "faroldesantamartaapp.event",
+        "pk": 5,
+        "fields": {
+            "title": "Sustainable Fishing Practices Seminar",
+            "date": "2024-10-20",
+            "location": "Local Fishermen's Association, Farol de Santa Marta",
+            "description": "Learn about sustainable fishing practices from experts in the field."
+        }
+    }
+]
