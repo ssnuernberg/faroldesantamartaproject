@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block title %}Home{% endblock %}
 
@@ -15,14 +17,18 @@
     </div>
   {% endif %}
 
-  <!-- Hero section -->
-  <div class="p-5 mb-4 bg-light rounded-3" style="min-height: 600px;">
-    <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold">Welcome to Farol de Santa Marta!</h1>
-      <p class="col-md-8 fs-4">Join us in preserving the natural beauty of our beloved coastline. Participate in clean-up activities, learn about environmental conservation, and help us keep our beaches pristine.</p>
-      <a href="{% url 'faroldesantamartaapp:get_involved' %}" class="btn btn-primary btn-lg" type="button">Get Involved</a>
+  <div class="p-5 mb-4 rounded-3" style="min-height: 600px; background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('{% static 'images/farol-aero.jpg' %}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="container-fluid py-5 text-white">
+      <div class="row justify-content-end">
+        <div class="col-md-6 text-end">
+          <h1 class="display-3 fw-bold">Welcome to Farol de Santa Marta</h1>
+          <p class="fs-4">Join us in preserving the natural beauty of our beloved coastline. Participate in clean-up activities, learn about environmental conservation, and help us keep our beaches pristine.</p>
+          <a href="{% url 'faroldesantamartaapp:get_involved' %}" class="btn btn-outline-light btn-lg mt-3" type="button">Get Involved</a>
+        </div>
+      </div>
     </div>
   </div>
+  
 
   <!-- Introduction Section -->
   <div class="row align-items-md-stretch">
