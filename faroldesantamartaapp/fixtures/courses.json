@@ -7,7 +7,7 @@
       "description": "This course provides an overview of environmental conservation principles and practices. Learn about the importance of preserving natural habitats and ecosystems.",
       "teacher": 5,
       "files": "",
-      "students": [2, 3, 4]
+      "students": [2, 3]
     }
   },
   {
@@ -18,7 +18,7 @@
       "description": "Explore the world of marine conservation and the science of oceanography. This course covers the threats to marine environments and the strategies used to protect them.",
       "teacher": 6,
       "files": "",
-      "students": [1, 4]
+      "students": [3, 4]
     }
   },
   {
@@ -29,7 +29,7 @@
       "description": "Learn how sustainable agricultural practices can help conserve soil, water, and biodiversity. This course also covers land management strategies to combat deforestation.",
       "teacher": 7,
       "files": "",
-      "students": [2, 5, 6]
+      "students": [2, 4]
     }
   },
   {
@@ -38,9 +38,9 @@
     "fields": {
       "name": "Wildlife Conservation and Ecology",
       "description": "This course delves into wildlife conservation, covering species protection, habitat conservation, and ecological balance. Ideal for those interested in protecting wildlife.",
-      "teacher": 8,
+      "teacher": 5,
       "files": "",
-      "students": [3, 4, 7]
+      "students": [2, 3, 4]
     }
   },
   {
@@ -49,9 +49,9 @@
     "fields": {
       "name": "Environmental Policy and Advocacy",
       "description": "Understand the role of policy in environmental conservation. This course covers environmental law, policy-making processes, and how to advocate for sustainable practices.",
-      "teacher": 9,
+      "teacher": 6,
       "files": "",
-      "students": [1, 6, 8]
+      "students": [4]
     }
   }
 ]
