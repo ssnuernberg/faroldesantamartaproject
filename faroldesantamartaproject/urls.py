@@ -30,6 +30,7 @@ router.register(r'statuses', StatusViewSet)
 
 urlpatterns = [
     path('', include('faroldesantamartaapp.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
 ]
