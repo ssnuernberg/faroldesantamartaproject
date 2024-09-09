@@ -12,3 +12,6 @@ python manage.py loaddata users
 python manage.py loaddata statuses
 python manage.py loaddata courses
 python manage.py loaddata feedbacks
+python manage.py loaddata events
+python manage.py loaddata products
+
